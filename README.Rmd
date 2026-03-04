@@ -24,7 +24,7 @@ There are 16 variables in this dataset, \
 1. Parcel ID: character, unique ID for each property. \
 2. Address: character, stores the address for individual property. \
 3. Style: factor, type of house style(1 story, 2 story, etc.). \
-4. Occupancy: factor, Says the type of occupancy (owner occupied, single family,, etc.). \
+4. Occupancy: factor, Says the type of occupancy (owner occupied, single family, etc.). \
 5. Sale Date: Date, Date when the property was sold. \
 6. Sale Price: numeric, Price the property was sold for, typically tens of thousands to several hundred thousand dollars. \
 7. Multi Sale: character, Indicates if the property was sold multiple times. \
