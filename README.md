@@ -1,4 +1,3 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/xXzBa9rr)
 
 <!-- README.md is generated from README.Rmd. Please edit the README.Rmd file -->
 
@@ -17,3 +16,20 @@ All submissions to the github repo will be automatically uploaded for
 grading once the due date is passed. Submit a link to your repository on
 Canvas (only one submission per team) to signal to the instructors that
 you are done with your submission.
+
+Step 1 result: There are 16 variables in this dataset, 1. Parcel ID:
+character, unique ID for each property 2. Address: character, stores the
+address for individual property 3. Style: factor, type of house style(1
+story, 2 story, etc.) 4. Occupancy: factor, Says the type of occupancy
+(owner occupied, single family,, etc.) 5. Sale Date: Date, Date when the
+property was sold. 6. Sale Price: numeric, Price the property was sold
+for 7. Multi Sale: character, Indicates if the property was sold
+multiple times. 8. YearBuilt: numeric, year the house was built 9.
+Acres: numeric, Lot size of the property in acres 10. TotalLivingArea
+(sf): numeric, Total living area of the house in square feet. 11.
+Bedrooms: numeric, number of bedrooms in the house 12. FinishedBsmtArea
+(sf): numeric, Finished basement area in square feet 13. LotArea(sf):
+numeric, Total lot size in square feet. 14. AC: character, Whether the
+house has air conditioning (Yes/No) 15. FirePlace: character, Whether
+the house has a fireplace. 16. Neighborhood: factor, Neighborhood in
+Ames where the house is located
