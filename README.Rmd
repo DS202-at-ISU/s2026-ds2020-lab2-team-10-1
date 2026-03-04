@@ -18,8 +18,9 @@ Include your answers in this document (Rmd file). Make sure that it knits proper
 All submissions to the github repo will be automatically uploaded for grading once the due date is passed.
 Submit a link to your repository on Canvas (only one submission per team) to signal to the instructors that you are done with your submission.
 
-Step 1 result:
-There are 16 variables in this dataset,
+
+# Step 1
+There are 16 variables in this dataset, \
 1. Parcel ID: character, unique ID for each property
 2. Address: character, stores the address for individual property
 3. Style: factor, type of house style(1 story, 2 story, etc.)
@@ -36,7 +37,6 @@ There are 16 variables in this dataset,
 14. AC: character, Whether the house has air conditioning (Yes/No)
 15. FirePlace: character, Whether the house has a fireplace.
 16. Neighborhood: factor, Neighborhood in Ames where the house is located
-# Step 1
 
 # Step 2
 
