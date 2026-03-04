@@ -63,4 +63,35 @@ This main variable is called: **“Sales Price”**.
 
 ## Shiva’s Work
 
+``` r
+library(classdata)
+library(ggplot2)
+
+data(ames)
+
+ggplot(ames, aes(x = `TotalLivingArea (sf)`, y = `Sale Price`)) +
+  geom_point(alpha = 0.5) +
+  labs(
+    title = "Sale Price vs Total Living Area",
+    x = "Total Living Area (sq ft)",
+    y = "Sale Price ($)"
+  )
+```
+
+    ## Warning: Removed 447 rows containing missing values or values outside the scale range
+    ## (`geom_point()`).
+
+![](README_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
+
+For this investigation, I explored the relationship between Sale Price
+and Total Living Area (sq ft) using a scatterplot. Most houses have
+living areas between about 500 and 4000 square feet, and their sale
+prices vary within a similar range. The plot does not show a very clear
+increasing pattern because several extremely high sale price values
+appear far above the rest of the data, which stretch the scale of the
+graph. These points are likely outliers or unusual luxury properties.
+Aside from these outliers, most houses cluster near the bottom of the
+plot, suggesting that other factors besides living area may also
+influence sale price.
+
 ## Olivia’s Work
