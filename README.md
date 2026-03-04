@@ -1,4 +1,3 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/xXzBa9rr)
 
 <!-- README.md is generated from README.Rmd. Please edit the README.Rmd file -->
 
@@ -17,3 +16,73 @@ All submissions to the github repo will be automatically uploaded for
 grading once the due date is passed. Submit a link to your repository on
 Canvas (only one submission per team) to signal to the instructors that
 you are done with your submission.
+
+# Step 1
+
+# Step 2
+
+Yes, there is a variable of special interest.  
+This main variable is called: **“Sales Price”**.  
+
+# Step 3
+
+The The lowest price is 0 and the highest is 20500000 making the range
+20500000
+
+``` r
+library(classdata)
+data(ames)
+hist(ames$`Sale Price`)
+```
+
+![](README_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
+
+The histogram of sale price shows the majority of homes near zero
+dollars. This is because the data set shows a large amount of homes
+costing nothing. The histogram also shows a few houses that cost around
+15 million dollars and 20 million dollars. It is odd that most of the
+price variables are zero in the data set. This could be due many
+reasons. For example, the price of the house could be private, there
+could have been an error populating the data, or an error in the data
+set itself.
+
+``` r
+library(ggplot2)
+library(dplyr)
+```
+
+    ## 
+    ## Attaching package: 'dplyr'
+
+    ## The following objects are masked from 'package:stats':
+    ## 
+    ##     filter, lag
+
+    ## The following objects are masked from 'package:base':
+    ## 
+    ##     intersect, setdiff, setequal, union
+
+``` r
+SalePrice <- ames["Sale Price"] |> filter(!is.na('Sale Price'))
+
+ggplot(SalePrice, aes(x = `Sale Price`)) +
+  geom_histogram(bins = 20, fill = "lightblue", color = "black") +
+  labs(title = "Histogram of Sale Price",
+       x = "Sale Price",
+       y = "Count") +
+  theme_minimal()
+```
+
+![](README_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+
+# Step 4
+
+## Grace’s Work
+
+## Kyle’s Work
+
+## Owen’s Work
+
+## Shiva’s Work
+
+## Olivia’s Work
