@@ -20,27 +20,31 @@ you are done with your submission.
 # Step 1
 
 There are 16 variables in this dataset,  
-1. Parcel ID: character, unique ID for each property  
-2. Address: character, stores the address for individual property  
-3. Style: factor, type of house style(1 story, 2 story, etc.)  
+1. Parcel ID: character, unique ID for each property.  
+2. Address: character, stores the address for individual property.  
+3. Style: factor, type of house style(1 story, 2 story, etc.).  
 4. Occupancy: factor, Says the type of occupancy (owner occupied, single
-family,, etc.)  
+family,, etc.).  
 5. Sale Date: Date, Date when the property was sold.  
-6. Sale Price: numeric, Price the property was sold for  
+6. Sale Price: numeric, Price the property was sold for, typically tens
+of thousands to several hundred thousand dollars.  
 7. Multi Sale: character, Indicates if the property was sold multiple
 times.  
-8. YearBuilt: numeric, year the house was built  
-9. Acres: numeric, Lot size of the property in acres  
+8. YearBuilt: numeric, year the house was built, usually between 1900
+and recent years.  
+9. Acres: numeric, Lot size of the property in acres, usually small
+values (0.05 – 1 acre for most homes).  
 10. TotalLivingArea (sf): numeric, Total living area of the house in
-square feet.  
-11. Bedrooms: numeric, number of bedrooms in the house  
+square feet, usually between ~500 and 4000 square feet.  
+11. Bedrooms: numeric, number of bedrooms in the house, typically
+between 1 and 6.  
 12. FinishedBsmtArea (sf): numeric, Finished basement area in square
-feet  
+feet.  
 13. LotArea(sf): numeric, Total lot size in square feet.  
-14. AC: character, Whether the house has air conditioning (Yes/No)  
+14. AC: character, Whether the house has air conditioning (Yes/No).  
 15. FirePlace: character, Whether the house has a fireplace.  
 16. Neighborhood: factor, Neighborhood in Ames where the house is
-located  
+located.  
 
 # Step 2
 
