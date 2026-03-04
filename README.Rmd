@@ -27,6 +27,20 @@ This main variable is called: **"Sales Price"**.\
 
 # Step 3
 
+The The lowest price is 0 and the highest is 20500000 making the range 20500000
+
+```{r}
+library(classdata)
+data(ames)
+hist(ames$`Sale Price`)
+    
+```
+
+The histogram of sale price shows the majority of homes near zero dollars. This is because the data set shows a large amount of homes costing nothing. The histogram also shows a few houses that cost around 15 million dollars and 20 million dollars. 
+It is odd that most of the price variables are zero in the data set. This could be due many reasons. For example, the price of the house could be private, there could have been an error populating the data, or an error in the data set itself. 
+
+
+
 # Step 4
 
 ## Grace's Work
