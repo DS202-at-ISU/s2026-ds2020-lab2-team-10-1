@@ -32,4 +32,23 @@ Bedrooms: numeric, number of bedrooms in the house 12. FinishedBsmtArea
 numeric, Total lot size in square feet. 14. AC: character, Whether the
 house has air conditioning (Yes/No) 15. FirePlace: character, Whether
 the house has a fireplace. 16. Neighborhood: factor, Neighborhood in
-Ames where the house is located
+Ames where the house is located \# Step 1
+
+# Step 2
+
+Yes, there is a variable of special interest.  
+This main variable is called: **“Sales Price”**.  
+
+# Step 3
+
+# Step 4
+
+## Grace’s Work
+
+## Kyle’s Work
+
+## Owen’s Work
+
+## Shiva’s Work
+
+## Olivia’s Work
