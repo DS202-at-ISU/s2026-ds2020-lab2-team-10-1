@@ -89,7 +89,8 @@ bedrooms |> range()
     ## [1]  0 10
 
 ``` r
-bedrooms |> ggplot(aes(x=factor(Bedrooms))) + geom_bar(fill="skyblue") + geom_text(stat="count", aes(label=after_stat(count)), vjust=-.3) + labs(title="Bedroom Counts", x="Bedroom Count", y="Property Count")
+bedroomsPlot <- bedrooms |> ggplot(aes(x=factor(Bedrooms))) + geom_bar(fill="skyblue") + geom_text(stat="count", aes(label=after_stat(count)), vjust=-.3) + labs(title="Bedroom Counts", x="Bedroom Count", y="Property Count")
+bedroomsPlot
 ```
 
 ![](README_files/figure-gfm/unnamed-chunk-1-1.png)<!-- --> The range for
@@ -98,17 +99,20 @@ between 2 and 5 bedrooms,
 
 ``` r
 filteredAmes <- ames |> filter(!is.na(Bedrooms)) |> filter(!is.na(`Sale Price`)) |> filter(`Sale Price` != 0)
-filteredAmes |> filter(`Sale Price` <= 1000000) |> ggplot(aes(x=factor(Bedrooms), y=`Sale Price`)) + geom_point(size=1) + labs(title="Bedrooms vs Sale Price <= $1,000,000", x="Bedroom Count", y="Sale Price")
+subMilPropPlot <- filteredAmes |> filter(`Sale Price` <= 1000000) |> ggplot(aes(x=factor(Bedrooms), y=`Sale Price`)) + geom_point(size=1) + labs(title="Bedrooms vs Sale Price <= $1,000,000", x="Bedroom Count", y="Sale Price")
+subMilPropPlot
 ```
 
 ![](README_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
 
 ``` r
-filteredAmes |> filter(`Sale Price` > 1000000) |> ggplot(aes(x=factor(Bedrooms), y=`Sale Price`)) + geom_point(size=1) +  labs(title="Bedrooms vs Sale Price > $1,000,000", x="Bedroom Count", y="Sale Price")
+supMilPropPlot <- filteredAmes |> filter(`Sale Price` > 1000000) |> ggplot(aes(x=factor(Bedrooms), y=`Sale Price`)) + geom_point(size=1) +  labs(title="Bedrooms vs Sale Price > $1,000,000", x="Bedroom Count", y="Sale Price")
+supMilPropPlot
 ```
 
 ![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
 
+  
 I had to separate the properties that sold for *\> \$1,000,000* since
 they heavily skewed the graph to where the majority of the points were
 not visible. I’d say those properties were definite oddities, as they

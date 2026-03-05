@@ -60,18 +60,22 @@ data(ames)
 bedrooms <- ames["Bedrooms"] |> filter(!is.na(Bedrooms))
 
 bedrooms |> range()
-bedrooms |> ggplot(aes(x=factor(Bedrooms))) + geom_bar(fill="skyblue") + geom_text(stat="count", aes(label=after_stat(count)), vjust=-.3) + labs(title="Bedroom Counts", x="Bedroom Count", y="Property Count")
+bedroomsPlot <- bedrooms |> ggplot(aes(x=factor(Bedrooms))) + geom_bar(fill="skyblue") + geom_text(stat="count", aes(label=after_stat(count)), vjust=-.3) + labs(title="Bedroom Counts", x="Bedroom Count", y="Property Count")
+bedroomsPlot
 ```
 The range for *bedrooms* in the *Ames* data set if **0** to **10**. Most houses have between 2 and 5 bedrooms,
 
 ```{r}
 filteredAmes <- ames |> filter(!is.na(Bedrooms)) |> filter(!is.na(`Sale Price`)) |> filter(`Sale Price` != 0)
-filteredAmes |> filter(`Sale Price` <= 1000000) |> ggplot(aes(x=factor(Bedrooms), y=`Sale Price`)) + geom_point(size=1) + labs(title="Bedrooms vs Sale Price <= $1,000,000", x="Bedroom Count", y="Sale Price")
+subMilPropPlot <- filteredAmes |> filter(`Sale Price` <= 1000000) |> ggplot(aes(x=factor(Bedrooms), y=`Sale Price`)) + geom_point(size=1) + labs(title="Bedrooms vs Sale Price <= $1,000,000", x="Bedroom Count", y="Sale Price")
+subMilPropPlot
 ```
 ```{r}
-filteredAmes |> filter(`Sale Price` > 1000000) |> ggplot(aes(x=factor(Bedrooms), y=`Sale Price`)) + geom_point(size=1) +  labs(title="Bedrooms vs Sale Price > $1,000,000", x="Bedroom Count", y="Sale Price")
+supMilPropPlot <- filteredAmes |> filter(`Sale Price` > 1000000) |> ggplot(aes(x=factor(Bedrooms), y=`Sale Price`)) + geom_point(size=1) +  labs(title="Bedrooms vs Sale Price > $1,000,000", x="Bedroom Count", y="Sale Price")
+supMilPropPlot
 ```
 
+\
 I had to separate the properties that sold for *> \$1,000,000* since they heavily skewed the graph to where the majority of the points were not visible. I'd say those properties were definite oddities, as they followed no pattern. As for the ones *<= \$1,000,000*, there is a slight pattern, where more bedrooms lead to higher sale price. However, there are many outliers, like the property with 0 bedrooms for ~\$740,000.
 <br>
 ## Owen's Work
