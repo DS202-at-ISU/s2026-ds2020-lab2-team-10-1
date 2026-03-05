@@ -55,6 +55,8 @@ I'm gonna look at the relationship between *Sales Price* and **Bedrooms**.\
 ```{r}
 library(ggplot2)
 library(dplyr)
+library(classdata)
+data(ames)
 bedrooms <- ames["Bedrooms"] |> filter(!is.na(Bedrooms))
 
 bedrooms |> range()
