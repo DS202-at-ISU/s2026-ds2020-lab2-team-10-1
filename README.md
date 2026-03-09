@@ -53,12 +53,47 @@ This main variable is called: **“Sales Price”**.
 
 # Step 3
 
+<<<<<<< HEAD
 The The lowest price is 0 and the highest is 20500000 making the range
 20500000
+=======
+# Step 4
+
+## Grace’s Year Built and sale price
+
+plot(ames$YearBuilt,
+     ames$`Sale Price`, main = “Sale Price vs Year Built”, xlab = “Year
+Built”, ylab = “Sale Price”, xlim = c(1850, 2025), ylim = c(0, 800000),
+pch = 16) \# I can see from this scatterplot that all of the homes were
+bulit after 1850 and as time goes on, the price of houses increases
+which makes sense.
+
+## Kyle’s Work
+
+I’m gonna look at the relationship between *Sales Price* and
+**Bedrooms**.  
+
+``` r
+library(ggplot2)
+library(dplyr)
+```
+
+    ## 
+    ## Attaching package: 'dplyr'
+
+    ## The following objects are masked from 'package:stats':
+    ## 
+    ##     filter, lag
+
+    ## The following objects are masked from 'package:base':
+    ## 
+    ##     intersect, setdiff, setequal, union
+>>>>>>> e1baf2416d18b0e0756e0ef689e630212a64084c
 
 ``` r
 library(classdata)
 data(ames)
+<<<<<<< HEAD
 hist(ames$`Sale Price`)
 ```
 
@@ -80,6 +115,47 @@ set itself.
 ## Kyle’s Work
 
 ## Owen’s Work
+=======
+bedrooms <- ames["Bedrooms"] |> filter(!is.na(Bedrooms))
+
+bedrooms |> range()
+```
+
+    ## [1]  0 10
+
+``` r
+bedroomsPlot <- bedrooms |> ggplot(aes(x=factor(Bedrooms))) + geom_bar(fill="skyblue") + geom_text(stat="count", aes(label=after_stat(count)), vjust=-.3) + labs(title="Bedroom Counts", x="Bedroom Count", y="Property Count")
+bedroomsPlot
+```
+
+![](README_files/figure-gfm/unnamed-chunk-1-1.png)<!-- --> The range for
+*bedrooms* in the *Ames* data set if **0** to **10**. Most houses have
+between 2 and 5 bedrooms,
+
+``` r
+filteredAmes <- ames |> filter(!is.na(Bedrooms)) |> filter(!is.na(`Sale Price`)) |> filter(`Sale Price` != 0)
+subMilPropPlot <- filteredAmes |> filter(`Sale Price` <= 1000000) |> ggplot(aes(x=factor(Bedrooms), y=`Sale Price`)) + geom_point(size=1) + labs(title="Bedrooms vs Sale Price <= $1,000,000", x="Bedroom Count", y="Sale Price")
+subMilPropPlot
+```
+
+![](README_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+
+``` r
+supMilPropPlot <- filteredAmes |> filter(`Sale Price` > 1000000) |> ggplot(aes(x=factor(Bedrooms), y=`Sale Price`)) + geom_point(size=1) +  labs(title="Bedrooms vs Sale Price > $1,000,000", x="Bedroom Count", y="Sale Price")
+supMilPropPlot
+```
+
+![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+
+  
+I had to separate the properties that sold for *\> \$1,000,000* since
+they heavily skewed the graph to where the majority of the points were
+not visible. I’d say those properties were definite oddities, as they
+followed no pattern. As for the ones *\<= \$1,000,000*, there is a
+slight pattern, where more bedrooms lead to higher sale price. However,
+there are many outliers, like the property with 0 bedrooms for
+~\$740,000. <br> \## Owen’s Work
+>>>>>>> e1baf2416d18b0e0756e0ef689e630212a64084c
 
 ## Shiva’s Work
 
@@ -101,7 +177,11 @@ ggplot(ames, aes(x = `TotalLivingArea (sf)`, y = `Sale Price`)) +
     ## Warning: Removed 447 rows containing missing values or values outside the scale range
     ## (`geom_point()`).
 
+<<<<<<< HEAD
 ![](README_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+=======
+![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+>>>>>>> e1baf2416d18b0e0756e0ef689e630212a64084c
 
 For this investigation, I explored the relationship between Sale Price
 and Total Living Area (sq ft) using a scatterplot. Most houses have
