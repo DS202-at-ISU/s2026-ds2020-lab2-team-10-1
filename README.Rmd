@@ -29,7 +29,17 @@ This main variable is called: **"Sales Price"**.\
 
 # Step 4
 
-## Grace's Work
+## Grace's  Year Built and sale price
+
+plot(ames$YearBuilt,
+     ames$`Sale Price`,
+     main = "Sale Price vs Year Built",
+     xlab = "Year Built",
+     ylab = "Sale Price",
+     xlim = c(1850, 2025),
+     ylim = c(0, 800000),
+     pch = 16)
+# I can see from this scatterplot that all  of the homes were bulit after 1850 and as time goes on, the price of houses increases which makes sense. 
 
 ## Kyle's Work
 
