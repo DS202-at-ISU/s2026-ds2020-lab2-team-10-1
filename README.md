@@ -1,4 +1,3 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/xXzBa9rr)
 
 <!-- README.md is generated from README.Rmd. Please edit the README.Rmd file -->
 
@@ -17,3 +16,149 @@ All submissions to the github repo will be automatically uploaded for
 grading once the due date is passed. Submit a link to your repository on
 Canvas (only one submission per team) to signal to the instructors that
 you are done with your submission.
+
+# Step 1
+
+There are 16 variables in this dataset,  
+1. Parcel ID: character, unique ID for each property.  
+2. Address: character, stores the address for individual property.  
+3. Style: factor, type of house style(1 story, 2 story, etc.).  
+4. Occupancy: factor, Says the type of occupancy (owner occupied, single
+family, etc.).  
+5. Sale Date: Date, Date when the property was sold.  
+6. Sale Price: numeric, Price the property was sold for, typically tens
+of thousands to several hundred thousand dollars.  
+7. Multi Sale: character, Indicates if the property was sold multiple
+times.  
+8. YearBuilt: numeric, year the house was built, usually between 1900
+and recent years.  
+9. Acres: numeric, Lot size of the property in acres, usually small
+values (0.05 – 1 acre for most homes).  
+10. TotalLivingArea (sf): numeric, Total living area of the house in
+square feet, usually between ~500 and 4000 square feet.  
+11. Bedrooms: numeric, number of bedrooms in the house, typically
+between 1 and 6.  
+12. FinishedBsmtArea (sf): numeric, Finished basement area in square
+feet.  
+13. LotArea(sf): numeric, Total lot size in square feet.  
+14. AC: character, Whether the house has air conditioning (Yes/No).  
+15. FirePlace: character, Whether the house has a fireplace.  
+16. Neighborhood: factor, Neighborhood in Ames where the house is
+located.  
+
+# Step 2
+
+Yes, there is a variable of special interest.  
+This main variable is called: **“Sales Price”**.  
+
+# Step 3
+
+# Step 4
+
+## Grace’s Year Built and sale price
+
+plot(ames$YearBuilt,
+     ames$`Sale Price`, main = “Sale Price vs Year Built”, xlab = “Year
+Built”, ylab = “Sale Price”, xlim = c(1850, 2025), ylim = c(0, 800000),
+pch = 16) \# I can see from this scatterplot that all of the homes were
+bulit after 1850 and as time goes on, the price of houses increases
+which makes sense.
+
+## Kyle’s Work
+
+I’m gonna look at the relationship between *Sales Price* and
+**Bedrooms**.  
+
+``` r
+library(ggplot2)
+library(dplyr)
+```
+
+    ## 
+    ## Attaching package: 'dplyr'
+
+    ## The following objects are masked from 'package:stats':
+    ## 
+    ##     filter, lag
+
+    ## The following objects are masked from 'package:base':
+    ## 
+    ##     intersect, setdiff, setequal, union
+
+``` r
+library(classdata)
+data(ames)
+bedrooms <- ames["Bedrooms"] |> filter(!is.na(Bedrooms))
+
+bedrooms |> range()
+```
+
+    ## [1]  0 10
+
+``` r
+bedroomsPlot <- bedrooms |> ggplot(aes(x=factor(Bedrooms))) + geom_bar(fill="skyblue") + geom_text(stat="count", aes(label=after_stat(count)), vjust=-.3) + labs(title="Bedroom Counts", x="Bedroom Count", y="Property Count")
+bedroomsPlot
+```
+
+![](README_files/figure-gfm/unnamed-chunk-1-1.png)<!-- --> The range for
+*bedrooms* in the *Ames* data set if **0** to **10**. Most houses have
+between 2 and 5 bedrooms,
+
+``` r
+filteredAmes <- ames |> filter(!is.na(Bedrooms)) |> filter(!is.na(`Sale Price`)) |> filter(`Sale Price` != 0)
+subMilPropPlot <- filteredAmes |> filter(`Sale Price` <= 1000000) |> ggplot(aes(x=factor(Bedrooms), y=`Sale Price`)) + geom_point(size=1) + labs(title="Bedrooms vs Sale Price <= $1,000,000", x="Bedroom Count", y="Sale Price")
+subMilPropPlot
+```
+
+![](README_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+
+``` r
+supMilPropPlot <- filteredAmes |> filter(`Sale Price` > 1000000) |> ggplot(aes(x=factor(Bedrooms), y=`Sale Price`)) + geom_point(size=1) +  labs(title="Bedrooms vs Sale Price > $1,000,000", x="Bedroom Count", y="Sale Price")
+supMilPropPlot
+```
+
+![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+
+  
+I had to separate the properties that sold for *\> \$1,000,000* since
+they heavily skewed the graph to where the majority of the points were
+not visible. I’d say those properties were definite oddities, as they
+followed no pattern. As for the ones *\<= \$1,000,000*, there is a
+slight pattern, where more bedrooms lead to higher sale price. However,
+there are many outliers, like the property with 0 bedrooms for
+~\$740,000. <br> \## Owen’s Work
+
+## Shiva’s Work
+
+``` r
+library(classdata)
+library(ggplot2)
+
+data(ames)
+
+ggplot(ames, aes(x = `TotalLivingArea (sf)`, y = `Sale Price`)) +
+  geom_point(alpha = 0.5) +
+  labs(
+    title = "Sale Price vs Total Living Area",
+    x = "Total Living Area (sq ft)",
+    y = "Sale Price ($)"
+  )
+```
+
+    ## Warning: Removed 447 rows containing missing values or values outside the scale range
+    ## (`geom_point()`).
+
+![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+
+For this investigation, I explored the relationship between Sale Price
+and Total Living Area (sq ft) using a scatterplot. Most houses have
+living areas between about 500 and 4000 square feet, and their sale
+prices vary within a similar range. The plot does not show a very clear
+increasing pattern because several extremely high sale price values
+appear far above the rest of the data, which stretch the scale of the
+graph. These points are likely outliers or unusual luxury properties.
+Aside from these outliers, most houses cluster near the bottom of the
+plot, suggesting that other factors besides living area may also
+influence sale price.
+
+## Olivia’s Work
