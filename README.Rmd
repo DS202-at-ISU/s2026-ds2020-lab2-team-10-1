@@ -102,7 +102,26 @@ supMilPropPlot
 \
 I had to separate the properties that sold for *> \$1,000,000* since they heavily skewed the graph to where the majority of the points were not visible. I'd say those properties were definite oddities, as they followed no pattern. As for the ones *<= \$1,000,000*, there is a slight pattern, where more bedrooms lead to higher sale price. However, there are many outliers, like the property with 0 bedrooms for ~\$740,000.
 <br>
+
 ## Owen's Work
+
+I will be exploring the relationship between *Sale Price* and **Lot Area**. 
+```{r}
+library(ggplot2)
+filteredAmes <- ames |> filter(!is.na(`LotArea(sf)`), !is.na(`Sale Price`), `Sale Price` != 0)
+
+ggplot(filteredAmes, aes(x = `LotArea(sf)`, y = `Sale Price`)) +
+  geom_point(alpha = 0.5) +
+  scale_x_continuous(limits = c(0, 30000)) +
+  labs(title = "Sale Price vs Lot Area", x = "Lot Area (sq ft)", y = "Sale Price ($)")
+```
+
+Range: 1,008 to 58,530 sq ft. (excluding NA)
+
+Pattern: Most lots are below 25,000 sq ft, with a few large lots that are outliers.
+
+There’s a weak positive trend. Larger lots sometimes sell for more, but other features likely dominate price. there are some very large lots that are outliers. I think the reason this relationship is not stronger is because there is so much variation in price depending on the house and other features of the property. For example, if you have a small lot with a very large house it will likely be more expensive than a medium sized lot with a small house. The outliers are likely incredibly large properties that cannot be applied as they are luxurious in all ways. 
+
 
 ## Shiva's Work
 ```{r}
